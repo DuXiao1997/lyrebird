@@ -32,14 +32,13 @@ export default {
   watch: {
     content: function (newValue) {
       console.debug("Code editor: content change");
-      if (this.editor) {
+      if ((this.editor)) {
         if (newValue !== this.editor.getValue()) {
           monaco.editor.setModelLanguage(this.editor.getModel(), this.language);
           this.editor.setValue(newValue);
           this.editor.trigger(this.editor.getValue(), 'editor.action.formatDocument')
         }
       }
-
     }
   },
   mounted: function () {
